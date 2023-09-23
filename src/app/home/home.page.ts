@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,36 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(
+    private router: Router
+  ) {}
+
+  public appPages = [
+    {
+      title: 'Books',
+      route: '/books-page',
+      icon: 'books'
+    },
+    {
+      title: 'Quiz',
+      route: '/quiz-page',
+      icon: 'books'
+    },
+    {
+      title: 'Review',
+      route: '/review-page',
+      icon: 'books'
+    },
+    {
+      title: 'Learn',
+      route: '/learn-page',
+      icon: 'books'
+    },
+
+  ]
+
+  public processNavigateToPage(page: any) {
+    this.router.navigateByUrl(page.route);
+  }
 
 }
